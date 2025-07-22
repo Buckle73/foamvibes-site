@@ -4,6 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Foam Vibes - Schiuma Party</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lightbox CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
 </head>
 <body class="bg-gradient-to-b from-sky-200 to-blue-100 text-gray-800">
   <!-- Hero -->
@@ -35,7 +38,12 @@
   </section> <!-- Galleria --> <section id="gallery" class="py-16 bg-white px-6">
     <h2 class="text-3xl font-bold text-center mb-10">Galleria</h2>
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="foto4.jpg" alt="Party" class="rounded-xl">
+      
+      <!-- Immagine 1 -->
+      <a href="images/foto4.jpg" data-lightbox="gallery">
+        <img src="images/foto4.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
+      </a>
+      
       <img src="foto3.jpg" alt="Party" class="rounded-xl">
       
       <video controls class="w-full rounded-xl">
@@ -63,5 +71,8 @@
   </section> <footer class="bg-blue-900 text-white text-center py-4">
     <p>&copy; 2025 Foam Vibes. Tutti i diritti riservati.</p>
   </footer>
+  
+  <!-- Lightbox2 JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 </body>
 </html>
