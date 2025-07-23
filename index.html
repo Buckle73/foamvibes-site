@@ -18,6 +18,17 @@
       background: linear-gradient(to top, white, transparent);
       pointer-events: none;
     }
+    .media-container {
+      display: flex;
+      flex-direction: column;
+    }
+    .media-container iframe,
+    .media-container video,
+    .media-container img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   </style>
   
 </head>
@@ -53,34 +64,40 @@
     <div id="gallery-container" class="relative">
       <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-h-[1000px] overflow-hidden transition-all duration-700 fade-bottom">
       
-       <a href="foto4.jpg" data-lightbox="gallery">
-         <img src="foto4.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
+       <a href="foto4.jpg" data-lightbox="gallery" data-title="Schiuma Party 1" class="media-container">
+         <img src="foto4.jpg" alt="Party 1" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
        </a>
-
-       <video controls class="w-full rounded-xl">
-         <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" type="video/mp4">
-         Il tuo browser non supporta il tag video.
-       </video>
+        
+       <div class="media-container">
+        <video controls class="rounded-xl">
+          <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" type="video/mp4">
+          Il tuo browser non supporta il tag video.
+        </video>
+       </div>  
       
-       <a href="foto3.jpg" data-lightbox="gallery">
+       <a href="foto3.jpg" data-lightbox="gallery" data-title="Schiuma Party 2" class="media-container>
          <img src="foto3.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
        </a>
       
-       <video controls class="w-full rounded-xl">
+       <div class="media-container">
+        <video controls class="rounded-xl">
          <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" type="video/mp4">
          Il tuo browser non supporta il tag video.
-       </video>
+        </video>
+       </div>  
         
-       <a href="foto2.jpg" data-lightbox="gallery">
+       <a href="foto2.jpg" data-lightbox="gallery" data-title="Schiuma Party 3" class="media-container>
          <img src="foto2.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
        </a>
 
-       <video controls class="w-full rounded-xl">
-         <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" type="video/mp4">
-         Il tuo browser non supporta il tag video.
-       </video>
+       <div class="media-container">
+        <video controls class="rounded-xl">
+          <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" type="video/mp4">
+          Il tuo browser non supporta il tag video.
+        </video>
+       </div>
       
-       <a href="foto1.jpeg" data-lightbox="gallery">
+       <a href="foto1.jpeg" data-lightbox="gallery" data-title="Schiuma Party 4" class="media-container>
          <img src="foto1.jpeg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
        </a>
         
