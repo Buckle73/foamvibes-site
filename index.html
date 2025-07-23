@@ -20,14 +20,14 @@
     }
     .media-container {
       display: block;
-      padding: 4px; /* leggero margine interno */
+      padding: 4px;
     }
     .media-container iframe,
     .media-container video,
     .media-container img {
       display: block;
       width: 100%;
-      height: auto; /* invece di 300px */
+      height: auto;
       max-height: 300px;
       object-fit: cover;
     }
@@ -42,7 +42,10 @@
       <p class="text-xl md:text-2xl text-white font-semibold drop-shadow">La festa più fresca dell’estate! 🫧</p>
       <a href="#eventi" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Scopri gli Eventi</a>
     </div>
-  </section> <!-- Eventi --> <section id="eventi" class="py-16 px-6">
+  </section>
+  
+  <!-- Eventi -->
+  <section id="eventi" class="py-16 px-6">
     <h2 class="text-3xl font-bold text-center mb-10">Prossimi Eventi</h2>
     <div class="grid md:grid-cols-3 gap-6">
       <div class="bg-white p-6 rounded-xl shadow-md">
@@ -66,7 +69,7 @@
   <section id="gallery" class="py-16 bg-white px-6 relative">
     <h2 class="text-3xl font-bold text-center mb-10">Galleria & Video</h2>
     <div id="gallery-container" class="relative">
-      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-0 max-h-[800px] overflow-hidden transition-all duration-700 fade-bottom">
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-h-[800px] overflow-hidden transition-all duration-700 fade-bottom">
       
        <a href="foto4.jpg" data-lightbox="gallery" data-title="Schiuma Party 1" class="media-container">
          <img src="foto4.jpg" alt="Party 1" class="rounded-xl shadow hover:scale-105 transition-transform">
