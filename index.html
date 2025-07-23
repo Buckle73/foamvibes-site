@@ -7,6 +7,19 @@
   
   <!-- Lightbox CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+  <style>
+    .fade-bottom::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      background: linear-gradient(to top, white, transparent);
+      pointer-events: none;
+    }
+  </style>
+  
 </head>
 <body class="bg-gradient-to-b from-sky-200 to-blue-100 text-gray-800">
   <!-- Hero -->
@@ -35,42 +48,49 @@
         <a href="#" class="text-blue-600 underline mt-2 inline-block">Prenota ora</a>
       </div>
     </div>
-  </section> <!-- Galleria --> <section id="gallery" class="py-16 bg-white px-6">
+  </section> <!-- Galleria --> <section id="gallery" class="py-16 bg-white px-6 relative">
     <h2 class="text-3xl font-bold text-center mb-10">Galleria & Video</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div id="gallery-container" class="relative">
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-h-[1000px] overflow-hidden transition-all duration-700 fade-bottom">
       
-      <a href="foto4.jpg" data-lightbox="gallery">
-        <img src="foto4.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
-      </a>
+       <a href="foto4.jpg" data-lightbox="gallery">
+         <img src="foto4.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
+       </a>
 
-      <video controls class="w-full rounded-xl">
-        <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" type="video/mp4">
-        Il tuo browser non supporta il tag video.
-      </video>
+       <video controls class="w-full rounded-xl">
+         <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" type="video/mp4">
+         Il tuo browser non supporta il tag video.
+       </video>
       
-      <a href="foto3.jpg" data-lightbox="gallery">
-        <img src="foto3.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
-      </a>
+       <a href="foto3.jpg" data-lightbox="gallery">
+         <img src="foto3.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
+       </a>
       
-      <video controls class="w-full rounded-xl">
-        <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" type="video/mp4">
-        Il tuo browser non supporta il tag video.
-      </video>
+       <video controls class="w-full rounded-xl">
+         <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" type="video/mp4">
+         Il tuo browser non supporta il tag video.
+       </video>
         
-      <a href="foto2.jpg" data-lightbox="gallery">
-        <img src="foto2.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
-      </a>
+       <a href="foto2.jpg" data-lightbox="gallery">
+         <img src="foto2.jpg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
+       </a>
 
-      <video controls class="w-full rounded-xl">
-        <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" type="video/mp4">
-        Il tuo browser non supporta il tag video.
-      </video>
+       <video controls class="w-full rounded-xl">
+         <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" type="video/mp4">
+         Il tuo browser non supporta il tag video.
+       </video>
       
-      <a href="foto1.jpeg" data-lightbox="gallery">
-        <img src="foto1.jpeg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
-      </a>
-      
+       <a href="foto1.jpeg" data-lightbox="gallery">
+         <img src="foto1.jpeg" alt="Party" class="rounded-xl w-full shadow hover:scale-105 transition-transform">
+       </a>
+        
+     </div>  
     </div>
+
+    <div class="text-center mt-8">
+      <button id="toggleGallery" class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">Mostra Altro</button>
+    </div>
+    
   </section> <!-- Chi siamo --> <section class="py-16 px-6 bg-sky-100">
     <h2 class="text-3xl font-bold text-center mb-6">Chi Siamo</h2>
     <p class="max-w-2xl mx-auto text-center text-lg">Siamo un team di creativi e amanti della festa che porta in giro per l’Italia il miglior schiuma party dell’estate. Schiuma, musica, DJ, luci e tanto divertimento per rendere ogni serata indimenticabile!</p>
@@ -85,11 +105,35 @@
         <a href="#" class="hover:text-blue-300">TikTok</a>
       </div>
     </div>
-  </section> <footer class="bg-blue-900 text-white text-center py-4">
+  </section> 
+  
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-8 text-center">
     <p>&copy; 2025 Foam Vibes. Tutti i diritti riservati.</p>
   </footer>
   
   <!-- Lightbox2 JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+
+  <!-- Toggle Script -->
+  <script>
+    const button = document.getElementById('toggleGallery');
+    const grid = document.getElementById('gallery-grid');
+    let expanded = false;
+
+    button.addEventListener('click', () => {
+      expanded = !expanded;
+      if (expanded) {
+        grid.classList.remove('max-h-[1000px]', 'overflow-hidden', 'fade-bottom');
+        button.textContent = 'Mostra Meno';
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        grid.classList.add('max-h-[1000px]', 'overflow-hidden', 'fade-bottom');
+        button.textContent = 'Mostra Altro';
+        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  </script>
+  
 </body>
 </html>
