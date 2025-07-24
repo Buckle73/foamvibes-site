@@ -56,26 +56,36 @@
   </section>
 
   <!-- Galleria -->
-  <section id="gallery" class="py-16 px-6 relative bg-cover bg-center" style="background-image: url('sfondogallery.png');">
+  <section id="gallery" class="py-16 px-6 relative bg-cover bg-center" style="background-image: url('sfondogallery.png'); z-index: 0;">
     <h2 class="text-3xl font-bold text-center mb-10">Galleria & Video</h2>
-    <div id="gallery-container" class="relative">
-      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-h-[800px] overflow-hidden transition-all duration-700 fade-bottom">
+    <div id="gallery-container" class="relative z-0">
+      <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 transition-all duration-700 fade-bottom">
 
-        <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
-          <img src="heroFB.jpg" alt="Video 1" class="rounded-xl shadow hover:scale-105 transition-transform" />
-        </a> 
+        <!-- Mostrati inizialmente -->
+        <div class="gallery-item">
+          <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
+            <img src="anteprima1.jpg" alt="Video 1" class="rounded-xl shadow hover:scale-105 transition-transform" />
+          </a>
+        </div>
 
-        <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
-          <img src="heroFB.jpg" alt="Video 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
-        </a> 
+        <div class="gallery-item">
+          <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
+            <img src="anteprima2.jpg" alt="Video 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
+          </a>
+        </div>
 
-        <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
-          <img src="heroFB.jpg" alt="Video 3" class="rounded-xl shadow hover:scale-105 transition-transform" />
-        </a>
+        <div class="gallery-item">
+          <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
+            <img src="anteprima3.jpg" alt="Video 3" class="rounded-xl shadow hover:scale-105 transition-transform" />
+          </a>
+        </div>
 
-        <a href="foto4.jpg" class="glightbox" data-gallery="gallery1">
-          <img src="foto4.jpg" alt="Foto 4" class="rounded-xl shadow hover:scale-105 transition-transform" />
-        </a>
+        <!-- Nascosti inizialmente -->
+        <div class="gallery-item hidden">
+          <a href="foto4.jpg" class="glightbox" data-gallery="gallery1">
+            <img src="foto4.jpg" alt="Foto 4" class="rounded-xl shadow hover:scale-105 transition-transform" />
+          </a>
+        </div>
 
       </div>
     </div>
@@ -113,30 +123,31 @@
   <!-- GLightbox JS -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
   <script>
-    const lightbox = GLightbox({
-      selector: '.glightbox'
-    });
+    const lightbox = GLightbox({ selector: '.glightbox' });
   </script>
 
   <!-- Toggle Script -->
   <script>
     const button = document.getElementById('toggleGallery');
-    const grid = document.getElementById('gallery-grid');
+    const hiddenItems = document.querySelectorAll('#gallery-grid .gallery-item.hidden');
     let expanded = false;
 
     button.addEventListener('click', () => {
       expanded = !expanded;
-      if (expanded) {
-        grid.classList.remove('max-h-[1000px]', 'overflow-hidden', 'fade-bottom');
-        button.textContent = 'Mostra Meno';
-        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        grid.classList.add('max-h-[1000px]', 'overflow-hidden', 'fade-bottom');
-        button.textContent = 'Mostra Altro';
-        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+
+      hiddenItems.forEach(el => {
+        if (expanded) {
+          el.classList.remove('hidden');
+        } else {
+          el.classList.add('hidden');
+        }
+      });
+
+      button.textContent = expanded ? 'Mostra Meno' : 'Mostra Altro';
+      document.getElementById('gallery').scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   </script>
 </body>
 </html>
+
 
