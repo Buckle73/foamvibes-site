@@ -21,6 +21,10 @@
       background: linear-gradient(to top, white, transparent);
       pointer-events: none;
     }
+    .zoomed-background {
+      backdrop-filter: blur(8px) brightness(1.2);
+      -webkit-backdrop-filter: blur(8px) brightness(1.2);
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900">
@@ -64,13 +68,13 @@
         <!-- Mostrati inizialmente -->
         <div class="gallery-item">
           <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
-            <img src="logoFB.png" alt="Video 1" class="rounded-xl shadow hover:scale-105 transition-transform" />
+            <img src="anteprima1.jpg" alt="Video 1" class="rounded-xl shadow hover:scale-105 transition-transform" />
           </a>
         </div>
 
         <div class="gallery-item">
           <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
-            <img src="logoFB.png" alt="Video 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
+            <img src="anteprima2.jpg" alt="Video 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
           </a>
         </div>
 
