@@ -22,15 +22,17 @@
       pointer-events: none;
     }
     .zoomed-background {
-      backdrop-filter: blur(8px) brightness(1.2);
-      -webkit-backdrop-filter: blur(8px) brightness(1.2);
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px) saturate(160%) contrast(130%);
+      -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(130%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
   </style>
 </head>
 <body class="bg-white text-gray-900">
   <!-- Hero -->
   <section class="h-screen bg-cover bg-center relative" style="background-image: url('https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/heroFB.jpg');">
-    <div class="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-10 zoomed-background p-6 md:p-10 rounded-xl shadow-xl w-[90%] max-w-xl text-center">
+    <div class="absolute top-16 left-1/2 transform -translate-x-1/2 zoomed-background p-6 md:p-10 rounded-xl shadow-xl w-[90%] max-w-xl text-center">
       <img src="logoFB.png" alt="Foam Vibes Logo" class="h-40 md:h-52 mx-auto mb-4">
       <p class="text-xl md:text-2xl text-white font-semibold drop-shadow">La festa più fresca dell’estate! 🫧</p>
       <a href="#eventi" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Scopri gli Eventi</a>
