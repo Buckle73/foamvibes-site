@@ -9,9 +9,7 @@
 
   <!-- GLightbox CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
-  
-  <!-- Lightbox CSS -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
+
   <style>
     .fade-bottom::after {
       content: "";
@@ -23,32 +21,18 @@
       background: linear-gradient(to top, white, transparent);
       pointer-events: none;
     }
-    .media-container {
-      display: block;
-      padding: 4px;
-    }
-    .media-container iframe,
-    .media-container video,
-    .media-container img {
-      display: block;
-      width: 100%;
-      height: auto;
-      max-height: 300px;
-      object-fit: cover;
-    }
   </style>
-  
 </head>
 <body class="bg-white text-gray-900">
   <!-- Hero -->
-  <section class="h-screen bg-cover bg-center realtive" style="background-image: url('https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/heroFB.jpg');">
+  <section class="h-screen bg-cover bg-center relative" style="background-image: url('https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/heroFB.jpg');">
     <div class="absolute top-16 left-1/2 transform -translate-x-1/2 bg-white bg-opacity-10 backdrop-blur-sm p-6 md:p-10 rounded-xl shadow-xl w-[90%] max-w-xl text-center">
       <img src="logoFB.png" alt="Foam Vibes Logo" class="h-40 md:h-52 mx-auto mb-4">
       <p class="text-xl md:text-2xl text-white font-semibold drop-shadow">La festa più fresca dell’estate! 🫧</p>
       <a href="#eventi" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Scopri gli Eventi</a>
     </div>
   </section>
-  
+
   <!-- Eventi -->
   <section id="eventi" class="py-16 px-6">
     <h2 class="text-3xl font-bold text-center mb-10">Prossimi Eventi</h2>
@@ -69,43 +53,46 @@
         <p>Evento speciale in collaborazione con Radio Party, inizio ore 19.</p>
       </div>
     </div>
-  </section> 
-  <!-- Galleria --> 
+  </section>
+
+  <!-- Galleria -->
   <section id="gallery" class="py-16 px-6 relative bg-cover bg-center" style="background-image: url('sfondogallery.png');">
-    <h2 class="text-3xl font-bold text-center mb-10">Video Gallery</h2>
+    <h2 class="text-3xl font-bold text-center mb-10">Galleria & Video</h2>
     <div id="gallery-container" class="relative">
       <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-h-[800px] overflow-hidden transition-all duration-700 fade-bottom">
 
-       <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" 
-          class="glightbox" data-gallery="gallery1" data-type="video">
-         <img src="anteprima1.jpg" alt="Video 1" class="rounded-xl shadow hover:scale-105 transition-transform" />
-       </a> 
-      
-       <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" 
-          class="glightbox" data-gallery="gallery1" data-type="video">
-         <img src="anteprima2.jpg" alt="Video 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
-       </a> 
+        <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
+          <img src="anteprima1.jpg" alt="Video 1" class="rounded-xl shadow hover:scale-105 transition-transform" />
+        </a> 
 
-       <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" 
-          class="glightbox" data-gallery="gallery1" data-type="video">
-         <img src="anteprima3.jpg" alt="Video 3" class="rounded-xl shadow hover:scale-105 transition-transform" />
-       </a>
+        <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
+          <img src="anteprima2.jpg" alt="Video 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
+        </a> 
 
-       <a href="foto4.jpg" class="glightbox" data-gallery="gallery1">
-         <img src="foto4.jpg" alt="Foto 4" class="rounded-xl shadow hover:scale-105 transition-transform" />
-       </a>
-        
-     </div>  
+        <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video3.mp4" class="glightbox" data-gallery="gallery1" data-type="video">
+          <img src="anteprima3.jpg" alt="Video 3" class="rounded-xl shadow hover:scale-105 transition-transform" />
+        </a>
+
+        <a href="foto4.jpg" class="glightbox" data-gallery="gallery1">
+          <img src="foto4.jpg" alt="Foto 4" class="rounded-xl shadow hover:scale-105 transition-transform" />
+        </a>
+
+      </div>
     </div>
 
     <div class="text-center mt-8">
       <button id="toggleGallery" class="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">Mostra Altro</button>
     </div>
-    
-  </section> <!-- Chi siamo --> <section class="py-16 px-6 bg-sky-100">
+  </section>
+
+  <!-- Chi siamo -->
+  <section class="py-16 px-6 bg-sky-100">
     <h2 class="text-3xl font-bold text-center mb-6">Chi Siamo</h2>
     <p class="max-w-2xl mx-auto text-center text-lg">Siamo un team di creativi e amanti della festa che porta in giro per l’Italia il miglior schiuma party dell’estate. Schiuma, musica, DJ, luci e tanto divertimento per rendere ogni serata indimenticabile!</p>
-  </section> <!-- Contatti --> <section id="contatti" class="py-16 px-6 bg-blue-950 text-white">
+  </section>
+
+  <!-- Contatti -->
+  <section id="contatti" class="py-16 px-6 bg-blue-950 text-white">
     <h2 class="text-3xl font-bold text-center mb-6">Contattaci</h2>
     <div class="max-w-xl mx-auto text-center">
       <p>Email: <a href="mailto:foamvibess@gmail.com" class="underline">foamvibess@gmail.com</a></p>
@@ -116,8 +103,8 @@
         <a href="#" class="hover:text-blue-300">TikTok</a>
       </div>
     </div>
-  </section> 
-  
+  </section>
+
   <!-- Footer -->
   <footer class="bg-gray-900 text-white py-8 text-center">
     <p>&copy; 2025 Foam Vibes. Tutti i diritti riservati.</p>
@@ -130,9 +117,6 @@
       selector: '.glightbox'
     });
   </script>
-  
-  <!-- Lightbox2 JS -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
 
   <!-- Toggle Script -->
   <script>
@@ -153,6 +137,6 @@
       }
     });
   </script>
-  
 </body>
 </html>
+
