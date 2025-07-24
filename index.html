@@ -6,6 +6,9 @@
   <title>Foam Vibes - Schiuma Party</title>
   <link rel="icon" type="image/png" href="favicon.png" />
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
   
   <!-- Lightbox CSS -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet" />
@@ -73,19 +76,15 @@
     <div id="gallery-container" class="relative">
       <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-h-[800px] overflow-hidden transition-all duration-700 fade-bottom">
 
-       <div class="media-container">
-        <video controls class="rounded-xl">
-          <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" type="video/mp4">
-          Il tuo browser non supporta il tag video.
-        </video>
-       </div>  
+       <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" 
+         class="glightbox" data-gallery="gallery1" data-type="video">
+        <img src="anteprima1.jpg" alt="Video 1" class="rounded-xl shadow hover:scale-105 transition-transform" />
+       </a> 
       
-       <div class="media-container">
-        <video controls class="rounded-xl">
-         <source src="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video1.mp4" type="video/mp4">
-         Il tuo browser non supporta il tag video.
-        </video>
-       </div>  
+       <a href="https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/video2.mp4" 
+          class="glightbox" data-gallery="gallery1" data-type="video">
+         <img src="anteprima2.jpg" alt="Video 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
+       </a> 
 
        <div class="media-container">
         <video controls class="rounded-xl">
@@ -93,6 +92,10 @@
           Il tuo browser non supporta il tag video.
         </video>
        </div>
+
+       <a href="foto2.jpg" class="glightbox" data-gallery="gallery1">
+         <img src="foto2.jpg" alt="Foto 2" class="rounded-xl shadow hover:scale-105 transition-transform" />
+       </a>
         
      </div>  
     </div>
@@ -121,6 +124,14 @@
   <footer class="bg-gray-900 text-white py-8 text-center">
     <p>&copy; 2025 Foam Vibes. Tutti i diritti riservati.</p>
   </footer>
+
+  <!-- GLightbox JS -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script>
+    const lightbox = GLightbox({
+      selector: '.glightbox'
+    });
+  </script>
   
   <!-- Lightbox2 JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
