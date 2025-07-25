@@ -27,6 +27,7 @@
       -webkit-backdrop-filter: blur(10px) saturate(160%) contrast(130%);
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2), 0 0 20px rgba(0, 174, 255, 0.4);
+      animation: fadeInUp 1s ease-out;
     }
     .navbar-visible {
       background-color: rgba(191, 219, 254, 0.8);
@@ -35,9 +36,30 @@
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
     }
     .navbar-hidden {
-      background-color: transparent;
-      box-shadow: none;
+      background-color: rgba(191, 219, 254, 0.5);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      backdrop-filter: blur(8px);
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .animate-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+    .animate-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .pulse-button {
+      animation: pulse 2s infinite;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
     }
   </style>
 </head>
@@ -81,23 +103,37 @@
         navbar.classList.add('navbar-visible');
         navbar.classList.remove('navbar-hidden');
       } else {
-        navbar.classList.add('navbar-hidden');
-        navbar.classList.remove('navbar-visible');
+        navbar.classList.add('navbar-visible');
+        navbar.classList.remove('navbar-hidden');
       }
+    });
+
+    // Sezione animazione su scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-section').forEach(section => {
+      observer.observe(section);
     });
   </script>
 
   <!-- Hero -->
   <section class="h-screen bg-cover bg-center relative pt-20" style="background-image: url('https://raw.githubusercontent.com/Buckle73/foamvibes-site/main/heroFB.jpg');">
-    <div class="absolute top-24 left-1/2 transform -translate-x-1/2 zoomed-background p-6 md:p-10 rounded-xl shadow-xl w-[90%] max-w-xl text-center">
+    <div class="absolute top-24 left-1/2 transform -translate-x-1/2 zoomed-background p-6 md:p-10 rounded-xl shadow-xl w-[90%] max-w-xl text-center animate-section">
       <img src="logoFB.png" alt="Foam Vibes Logo" class="h-40 md:h-52 mx-auto mb-4">
       <p class="text-xl md:text-2xl text-white font-semibold drop-shadow">La festa più fresca dell’estate! 🫧</p>
-      <a href="#eventi" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition">Scopri gli Eventi</a>
+      <a href="#eventi" class="mt-6 inline-block bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition pulse-button">Scopri gli Eventi</a>
     </div>
   </section>
 
   <!-- Eventi -->
-  <section id="eventi" class="py-16 px-6">
+  <section id="eventi" class="py-16 px-6 animate-section">
     <h2 class="text-3xl font-bold text-center mb-10">Prossimi Eventi</h2>
     <div class="grid md:grid-cols-3 gap-6">
       <div class="bg-white p-6 rounded-xl shadow-md">
