@@ -28,11 +28,22 @@
       border: 1px solid rgba(255, 255, 255, 0.3);
       box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2), 0 0 20px rgba(0, 174, 255, 0.4);
     }
+    .navbar-visible {
+      background-color: rgba(191, 219, 254, 0.8);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(10px);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .navbar-hidden {
+      background-color: transparent;
+      box-shadow: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-900">
   <!-- Navbar Mobile Friendly -->
-  <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200 shadow-sm">
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 navbar-visible border-b border-blue-200">
     <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
       <a href="#">
         <img src="logoFB.png" alt="Foam Vibes Logo" class="h-10 md:h-12">
@@ -59,8 +70,20 @@
   <script>
     const toggle = document.getElementById('menu-toggle');
     const mobileMenu = document.getElementById('mobile-menu');
+    const navbar = document.getElementById('navbar');
+
     toggle.addEventListener('click', () => {
       mobileMenu.classList.toggle('hidden');
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        navbar.classList.add('navbar-visible');
+        navbar.classList.remove('navbar-hidden');
+      } else {
+        navbar.classList.add('navbar-hidden');
+        navbar.classList.remove('navbar-visible');
+      }
     });
   </script>
 
@@ -94,6 +117,7 @@
       </div>
     </div>
   </section>
+
 
 
   <!-- Galleria -->
